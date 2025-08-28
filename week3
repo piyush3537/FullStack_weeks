@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Responsive Layout Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #222;
+    }
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: #222944;
+      color: #fff;
+      padding: 24px 14px;
+      height: 100vh;
+      box-shadow: 2px 0 8px rgba(44,62,80,0.08);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .sidebar h2 {
+      font-size: 23px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 11px 0;
+      font-size: 17px;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .sidebar li:hover {
+      color: #ed6c33;
+    }
+
+    /* Main section */
+    .main-content {
+      margin-left: 230px;
+      padding: 28px 16px;
+    }
+
+    /* Product Card */
+    .product-section {
+      margin: 22px 0 32px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+    .product-card {
+      width: 290px;
+      border: 1px solid #e5e5e5;
+      border-radius: 13px;
+      padding: 15px;
+      margin: 12px 0;
+      background: #fff;
+      box-shadow: 0 2px 14px rgba(43, 61, 101, 0.13);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-card img {
+      width: 95%;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .product-card h3 {
+      margin: 7px 0 4px;
+      font-size: 19px;
+    }
+    .product-card p {
+      font-size: 15px;
+      color: #5d5d5d;
+      text-align: center;
+      margin: 2px 0 8px;
+    }
+    .buy-btn {
+      background: #ff5722;
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      font-size: 15px;
+      border-radius: 7px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+      box-shadow: 0 1px 4px rgba(50,50,50,0.055);
+      transition: background 0.19s;
+    }
+    .buy-btn:hover {
+      background: #e84118;
+    }
+
+    /* Blog Flexbox */
+    .blog-flex-layout {
+      display: flex;
+      gap: 24px;
+      margin: 35px 0 15px 0;
+    }
+    .blog-column {
+      flex: 1;
+      background: #f7f7f7;
+      padding: 19px;
+      border-radius: 11px;
+      box-shadow: 0 1px 8px rgba(16, 16, 90, 0.09);
+      min-width: 0;
+    }
+    .blog-column h4 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #2b2b2b;
+    }
+    .blog-column p {
+      font-size: 15px;
+      color: #535353;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .blog-flex-layout { gap: 12px; }
+      .product-section { gap: 14px; }
+      .sidebar { width: 100%; position: static; height: auto; }
+      .main-content { margin-left: 0; padding: 15px 6px; }
+    }
+    @media (max-width: 600px) {
+      .blog-flex-layout { flex-direction: column; gap: 13px; }
+      .product-card { width: 98%; }
+      .product-section { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Categories</h2>
+    <ul>
+      <li>Tech</li>
+      <li>Design</li>
+      <li>Marketing</li>
+      <li>Travel</li>
+      <li>Shop</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <!-- Product Card Section -->
+    <h1>Featured Products</h1>
+    <div class="product-section">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Smart Watch">
+        <h3>Smart Watch</h3>
+        <p>Track your activity and health with this stylish, functional smart watch.</p>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Wireless Headphones">
+        <h3>Wireless Headphones</h3>
+        <p>Enjoy great sound and comfort. Lightweight and portable for music lovers.</p>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+    </div>
+    <!-- Blog Flexbox Layout Section -->
+    <h1 style="margin-top:38px;">Latest Blogs</h1>
+    <div class="blog-flex-layout">
+      <div class="blog-column">
+        <h4>Web Design Trends</h4>
+        <p>Explore the latest trends: responsive layouts, vivid gradients, and minimalist design are in demand this year.</p>
+      </div>
+      <div class="blog-column">
+        <h4>E-Commerce Growth</h4>
+        <p>Learn how mobile-first design, SEO, and customer experience drive successful online stores today.</p>
+      </div>
+      <div class="blog-column">
+        <h4>Flexbox Tips</h4>
+        <p>Use Flexbox for easy, robust layouts. Control gaps, alignment, and stacking across all devices.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
