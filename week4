@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpaceStartup Landing Page</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Keyframe Animations */
+    @keyframes rocketLaunch {
+      0% {
+        bottom: 0;
+        opacity: 1;
+        transform: translateX(0) scale(1) rotate(-5deg);
+      }
+      10% {
+        transform: translateX(-10px) scale(1.05) rotate(2deg);
+      }
+      90% {
+        bottom: 80%;
+        opacity: 0.8;
+        transform: translateX(10px) scale(1.2) rotate(-2deg);
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0.4;
+        transform: translateX(-5px) scale(1.25) rotate(0deg);
+      }
+    }
+    @keyframes floatAstronaut {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+    }
+    @keyframes rotatePlanet {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      background: linear-gradient(to top, #0d1b2a, #1b263b);
+      color: #fff;
+    }
+    .hero-section img {
+      position: absolute;
+      pointer-events: none;
+    }
+    .rocket {
+      bottom: 0;
+      left: 10%;
+      width: 120px;
+      animation: rocketLaunch 7s ease-in infinite;
+    }
+    .astronaut {
+      bottom: 20%;
+      right: 15%;
+      width: 100px;
+      animation: floatAstronaut 5s ease-in-out infinite;
+    }
+    .planet {
+      top: 10%;
+      left: 50%;
+      width: 200px;
+      transform: translateX(-50%);
+      animation: rotatePlanet 20s linear infinite;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      top: 30%;
+      text-align: center;
+    }
+
+    /* Navbar Hover Transitions */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s, background 0.3s, font-size 0.3s;
+      padding: 0.5rem 1rem;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background: #4f8cff;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #234dbc;
+      background: #eef6ff;
+      font-size: 1.1rem;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d1b2a;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">SpaceStartup</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Animations -->
+  <section class="hero-section">
+    <img src="rocket.png" alt="Rocket" class="rocket" />
+    <img src="astronaut.png" alt="Astronaut" class="astronaut" />
+    <img src="planet.png" alt="Planet" class="planet" />
+    <div class="hero-content text-white">
+      <h1 class="display-4">Launch Your Ideas to the Stars</h1>
+      <p class="lead">Innovative space solutions for a better tomorrow.</p>
+      <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Carousel for Highlights -->
+  <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="slide1.jpg" class="d-block w-100" alt="Feature 1" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Revolutionary Propulsion</h5>
+          <p>Cutting-edge engines for the fastest liftoff.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="slide2.jpg" class="d-block w-100" alt="Feature 2" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Advanced Life Support</h5>
+          <p>Ensuring safety and comfort for every mission.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="slide3.jpg" class="d-block w-100" alt="Feature 3" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Mission Control</h5>
+          <p>Real-time monitoring and guidance from Earth.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Cards Section -->
+  <section class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="card1.jpg" class="card-img-top" alt="Service 1" />
+          <div class="card-body">
+            <h5 class="card-title">Orbital Services</h5>
+            <p class="card-text">Satellite deployment and maintenance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="card2.jpg" class="card-img-top" alt="Service 2" />
+          <div class="card-body">
+            <h5 class="card-title">Deep Space Research</h5>
+            <p class="card-text">Scientific missions beyond Earth orbit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="card3.jpg" class="card-img-top" alt="Service 3" />
+          <div class="card-body">
+            <h5 class="card-title">Training Programs</h5>
+            <p class="card-text">Astronaut training and simulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-4">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3 mb-3">
+          <h6>Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Products</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Propulsion</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Contact</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Email Us</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-3">&copy; 2025 SpaceStartup</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
