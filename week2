@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #2364aa;
+      --accent: #3da5d9;
+      --highlight: #ffcd38;
+      --background: #f4f9fa;
+      --neutral: #22223b;
+      --favorite: #f43f5e;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--background);
+      color: var(--neutral);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    .main-container {
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 36px 30px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px 0 rgba(35, 100, 170, 0.09);
+    }
+
+    nav {
+      text-align: right;
+      margin-bottom: 28px;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 24px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: var(--highlight);
+      color: #1e293b;
+    }
+
+    .main-heading {
+      font-size: 2.4rem;
+      color: var(--primary);
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+    .subtitle {
+      color: var(--accent);
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    #mission {
+      background: linear-gradient(90deg, var(--highlight) 0%, #fff9ea 100%);
+      border-left: 8px solid var(--primary);
+      padding: 22px 30px;
+      border-radius: 9px;
+      margin: 36px 0 42px 0;
+    }
+    #mission h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    #mission p {
+      margin-bottom: 0;
+      font-size: 1.14em;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul.movies {
+      display: flex;
+      gap: 16px;
+      padding: 0;
+      list-style: none;
+      margin-top: 8px;
+      margin-bottom: 35px;
+    }
+    ul.movies li {
+      background: hsl(199 89% 90%);
+      color: var(--primary);
+      border-radius: 18px;
+      padding: 12px 28px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px #3da5d920;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    ul.movies li::before {
+      content: "★";
+      color: #f7af3e;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1em;
+      opacity: 0.5;
+    }
+    ul.movies .favorite-movie {
+      background: linear-gradient(105deg, var(--favorite) 63%, #fff 140%);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 4px 16px #f43f5e22;
+      border: 2px solid var(--favorite);
+      letter-spacing: 0.01em;
+      z-index: 1;
+    }
+    ul.movies .favorite-movie::before {
+      content: "❤";
+      color: #fff;
+      left: 16px;
+      opacity: 1;
+    }
+
+    ol.cities {
+      counter-reset: cities;
+      margin: 0;
+      padding: 0;
+    }
+    ol.cities li {
+      list-style: none;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #e0ecf6 0 70%, #f4f9fa 90%);
+      border-radius: 13px;
+      padding: 15px 22px 15px 58px;
+      position: relative;
+      transition: background 0.3s, color 0.3s;
+      font-size: 1.09em;
+      color: var(--neutral);
+    }
+    ol.cities li::before {
+      counter-increment: cities;
+      content: counter(cities);
+      position: absolute;
+      left: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 50%;
+      font-size: 1.1em;
+      box-shadow: 0 2px 7px #2364aa16;
+    }
+    ol.cities li:nth-child(1) {
+      background: linear-gradient(90deg, #ffe6c6 0 60%, #fff 110%);
+      color: #b4690e;
+      font-size: 1.15em;
+      letter-spacing: 0.04em;
+    }
+    ol.cities li:nth-child(2) {
+      background: linear-gradient(90deg, #d2ffec 0 70%, #f4f9fa 100%);
+      color: #308477;
+      border-left: 7px solid var(--accent);
+      font-style: italic;
+    }
+    ol.cities li:nth-child(3) {
+      background: linear-gradient(90deg, #e0e0f7 0 77%, #fff 110%);
+      color: #5350b9;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    @media (max-width: 650px) {
+      .main-container { padding: 18px 4vw; }
+      ul.movies { flex-direction: column; }
+      ul.movies li, ul.movies .favorite-movie { padding: 12px 18px; min-width: 0; }
+      ol.cities li { padding-left: 48px; font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="mailto:info@company.com">Contact</a>
+    </nav>
+    <h1 class="main-heading" id="about">About Us</h1>
+    <div class="subtitle">
+      We blend creativity, empathy, and technology to drive meaningful growth.
+    </div>
+    <section>
+      <p>
+        Our passionate team delivers results with innovation and dedication.<br>
+        We strive for positive change and lasting partnerships anchored by transparency.
+      </p>
+    </section>
+    <section id="mission">
+      <h2>Our Mission</h2>
+      <p>
+        To empower organizations and people through reliable solutions and continuous progress.<br>
+        Connect with us at <a href="mailto:info@company.com">info@company.com</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>Favorite Movies</h3>
+      <ul class="movies">
+        <li>Inception</li>
+        <li class="favorite-movie">Spirited Away</li>
+        <li>Interstellar</li>
+        <li>The Godfather</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Cities to Visit</h3>
+      <ol class="cities">
+        <li>Kyoto</li>
+        <li>Barcelona</li>
+        <li>Reykjavik</li>
+      </ol>
+    </section>
+  </div>
+</body>
+</html>
